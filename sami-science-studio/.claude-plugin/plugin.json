@@ -1,0 +1,9 @@
+{
+  "name": "sami-science-studio",
+  "displayName": "SAMI Science Studio",
+  "version": "0.1.0",
+  "description": "Turn a topic, a document or lab notes into a fact-checked science motion-graphics video (maths, space, chemistry) with a publishing pack. Code-driven scenes, a fact ledger that blocks unverified numbers, switchable style packs and per-channel profiles.",
+  "author": { "name": "SAMI" },
+  "license": "UNLICENSED",
+  "keywords": ["video", "motion-graphics", "science", "education", "youtube", "shorts"]
+}

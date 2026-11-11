@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Video spec",
+  "description": "One shape for three uses: a reconstruction of a sample video, a director's storyboard, and a prompt handed to a builder. Only the keys under 'required' are needed to render; the rest make the brief complete. Extra keys are allowed.",
+  "type": "object",
+  "required": ["spec_version", "id", "title", "timeline"],
+  "properties": {
+    "spec_version": { "const": "1.0" },
+    "id": { "type": "string", "description": "Slug; also the project folder name." },
+    "kind": { "enum": ["storyboard", "reference_reconstruction"], "description": "A reconstruction describes someone else's video and is used as a model only." },
+    "title": { "type": "string" },
+    "language": { "type": "string" },
+    "provenance": { "type": "object", "description": "Reconstructions: where the sample came from, how it was read, what was unreadable, how it may be reused." },
+    "builder_instructions": { "type": "string", "description": "One paragraph that would let a builder start without reading the rest." },
+    "intent": {
+      "type": "object",
+      "properties": { "goal": { "type": "string" }, "audience": { "type": "string" }, "takeaway": { "type": "string" }, "hook": { "type": "string" }, "emotional_arc": { "type": "array", "items": { "type": "string" } } }
+    },
+    "format": {
+      "type": "object",
+      "properties": {
+        "aspect": { "enum": ["9:16", "16:9", "1:1"] }, "resolution": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+        "fps": { "type": "number" }, "duration_s": { "type": "number" }, "platforms": { "type": "array", "items": { "type": "string" } }, "cuts": { "type": "integer" }, "loopable": { "type": "boolean" }
+      }
+    },
+    "style": {
+      "type": "object",
+      "description": "Names a style pack; a reconstruction also records what was seen so a new pack can be written.",
+      "properties": {
+        "pack": { "type": "string" }, "mood": { "type": "string" }, "palette": { "type": "object" }, "typography": { "type": "object" }, "materials": {}, "lighting": {},
+        "background": { "type": "string" }, "motion_language": { "type": "string" }, "transitions": { "type": "string" }
+      }
+    },
+    "brand": { "type": "object", "description": "Wordmark text, position and fill; for reconstructions, what to replace it with." },
+    "layout": { "type": "object", "description": "Where the fixed parts sit, as percentages of the frame or as engine zones." },
+    "camera": { "type": "object", "properties": { "projection": { "type": "string" }, "fov_deg": { "type": "number" }, "moves": {} } },
+    "world": { "type": "object", "properties": { "objects": { "type": "array", "items": { "type": "object", "required": ["id", "type"] } } } },
+    "science": {
+      "type": "object",
+      "properties": {
+        "domain": { "type": "string" }, "topic": { "type": "string" }, "level": { "type": "string" }, "model": { "type": "string" },
+        "caveats": { "type": "array", "items": { "type": "string" } }, "labs": { "type": "array", "items": { "type": "string" } },
+        "equations": { "type": "array" }, "weak_points_in_the_original": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "audio": { "type": "object", "properties": { "voiceover": {}, "music": {}, "sfx": {} } },
+    "timeline": {
+      "type": "array", "minItems": 1,
+      "description": "Contiguous beats from 0 to duration_s. One purpose and one visual change per beat.",
+      "items": {
+        "type": "object", "required": ["id", "t_start", "t_end"],
+        "properties": { "id": { "type": "string" }, "t_start": { "type": "number" }, "t_end": { "type": "number" }, "purpose": { "type": "string" }, "visual": { "type": "string" }, "labels": { "type": "array" }, "card": { "type": "object" } }
+      }
+    },
+    "texts": {
+      "type": "object",
+      "description": "Storyboards: every string shown on screen, by key. The scene reads them with stage.text(key).",
+      "additionalProperties": {
+        "type": "object", "required": ["text"],
+        "properties": {
+          "text": { "type": "string", "description": "$...$ is LaTeX; {1|..} {2|..} {3|..} are accent colours; a math item is LaTeX throughout." },
+          "role": { "enum": ["title", "subtitle", "pill", "heading", "math", "note", "chip", "caption", "label"] },
+          "beat": { "type": "string" }, "until": { "type": "string" },
+          "facts": { "type": "array", "items": { "type": "string" }, "description": "Ids in facts.json behind every number or equation in the text." },
+          "tex_of": { "type": "string", "description": "The text must equal the LaTeX generated from this checked equation or identity." },
+          "structural": { "type": "array", "description": "Numbers that are not science, such as step numbers." }
+        }
+      }
+    },
+    "render": { "type": "object", "properties": { "engine": { "type": "string" }, "scene_type": { "type": "string" }, "components": { "type": "array" }, "missing_components": { "type": "array" } } },
+    "avoid": { "type": "array", "items": { "type": "string" } },
+    "qa_checklist": { "type": "array", "items": { "type": "string" } }
+  }
+}

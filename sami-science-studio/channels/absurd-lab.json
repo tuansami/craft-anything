@@ -1,0 +1,29 @@
+{
+  "id": "absurd-lab",
+  "name": "What If Lab",
+  "wordmark": "WhatIfLab",
+  "promise": "Ridiculous questions, answered with real numbers.",
+  "audience": { "regions": ["US", "UK", "EU"], "language": "en", "age": "13-35", "who": "people who share odd facts with friends" },
+  "tone": { "voice": "deadpan, playful, never mocking", "humour": 3, "reading_level": "short sentences, one joke per beat at most", "forbidden": ["jokes that replace the answer", "punching down", "fake numbers for a laugh"] },
+  "pillars": ["absurd scale comparisons", "impossible experiments, computed", "mash-ups of two unrelated things"],
+  "formats": { "primary": "9x16", "secondary": ["16x9"], "length_s": { "short": [20, 40], "long": [300, 600] } },
+  "style": { "pack": "midnight-lab", "narration": "none or dry one-liners as captions" },
+  "signature": {
+    "why": "The humour sits on top of a real calculation, which is the part that is hard to copy.",
+    "elements": [
+      "The question is stated as a lab request form in the first second.",
+      "'Assumptions' card, played straight, listing what was assumed (a spherical cow is allowed if it is declared).",
+      "The answer always arrives as a number with a unit and a comparison to something familiar.",
+      "A recurring object (a rubber duck) appears somewhere in every scene for scale."
+    ]
+  },
+  "cta": {
+    "on_screen": "'Send us a worse question.'",
+    "description": "The calculation, with the assumptions.",
+    "pinned_comment": "Pick next week's question from the replies.",
+    "avoid": ["dangerous dares", "claims that the absurd scenario is possible"]
+  },
+  "seo": { "title_pattern": "What if <absurd premise>? (we did the maths)", "hashtags": ["#whatif", "#science", "#maths"] },
+  "cadence": { "shorts_per_week": 3, "long_per_week": 1 },
+  "accuracy_policy": { "cited_must_be_confirmed": true, "show_model_note": true, "label_fiction": "Anything imagined is labelled as an assumption on screen." }
+}

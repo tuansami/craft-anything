@@ -1,0 +1,29 @@
+{
+  "id": "everyday-science",
+  "name": "Why It Works",
+  "wordmark": "WhyItWorks",
+  "promise": "The science inside ordinary things: kitchens, phones, weather, sport.",
+  "audience": { "regions": ["US", "UK", "EU"], "language": "en", "age": "18-45", "who": "curious adults, parents, makers" },
+  "tone": { "voice": "friendly, practical, a little surprised", "humour": 1, "reading_level": "everyday words first, the term second", "forbidden": ["safety shortcuts", "'life hacks' that are not tested", "health claims"] },
+  "pillars": ["chemistry at home", "physics you can feel", "maths that saves money or time", "space you can see tonight"],
+  "formats": { "primary": "9x16", "secondary": ["1x1"], "length_s": { "short": [25, 50], "long": [240, 600] } },
+  "style": { "pack": "clean-bench", "narration": "optional short voice-over; captions always" },
+  "signature": {
+    "why": "Things a copier has to rebuild rather than re-upload.",
+    "elements": [
+      "Opens on the everyday object, then the camera goes inside it.",
+      "'Try it' card: one safe thing the viewer can do and the number they should see.",
+      "A cost, time or energy figure worked out for a normal household.",
+      "Blue label chips with leader lines on a white studio."
+    ]
+  },
+  "cta": {
+    "on_screen": "'Try it tonight' plus what to look for.",
+    "description": "The calculation with the viewer's own numbers to plug in.",
+    "pinned_comment": "Ask what result they got.",
+    "avoid": ["instructions that need lab chemicals", "anything unsafe at home"]
+  },
+  "seo": { "title_pattern": "Why <everyday thing> <does surprising thing>", "hashtags": ["#science", "#howitworks", "#everydayscience"] },
+  "cadence": { "shorts_per_week": 4, "long_per_week": 1 },
+  "accuracy_policy": { "cited_must_be_confirmed": true, "show_model_note": true, "safety_review": "Every 'try it' step needs a safety line in the storyboard." }
+}

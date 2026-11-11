@@ -1,0 +1,30 @@
+{
+  "id": "pure-science",
+  "name": "LumenLab",
+  "wordmark": "LumenLab",
+  "promise": "One exact idea from maths, space or chemistry, shown so clearly you can check it yourself.",
+  "audience": { "regions": ["US", "UK", "EU"], "language": "en", "age": "15-30", "who": "students and people who liked science at school" },
+  "tone": { "voice": "calm, exact, quietly amazed", "humour": 0, "reading_level": "plain English, defined terms", "forbidden": ["hype words", "clickbait that the video does not pay off", "medical or financial advice"] },
+  "pillars": ["mathematics", "space", "chemistry"],
+  "formats": { "primary": "9x16", "secondary": ["16x9"], "length_s": { "short": [20, 45], "long": [180, 480] } },
+  "style": { "pack": "midnight-lab", "narration": "none: on-screen text and music, as in the reference videos" },
+  "signature": {
+    "why": "Things a copier has to rebuild rather than re-upload.",
+    "elements": [
+      "Method card at the end of every video: what was computed, with what model, and what the result does not show.",
+      "Every chart is the computed curve, drawn live; a small tag names the lab script's method.",
+      "Series numbering in the step pill (for example 'Titration 2/5').",
+      "The wordmark gradient and the amber/teal/violet accent order.",
+      "A three-note sound logo on the first frame."
+    ]
+  },
+  "cta": {
+    "on_screen": "One line in the last 3 s that names the next episode.",
+    "description": "Sources and the calculation are in the description.",
+    "pinned_comment": "A question the video can answer in a follow-up.",
+    "avoid": ["'smash that like button'", "asking for a follow before the payoff"]
+  },
+  "seo": { "title_pattern": "<surprising exact fact> | <topic>", "hashtags": ["#science", "#chemistry", "#maths", "#space"], "language_variants": ["en-US spelling in titles; en-GB accepted in the video if the syllabus is British"] },
+  "cadence": { "shorts_per_week": 5, "long_per_week": 1 },
+  "accuracy_policy": { "cited_must_be_confirmed": true, "show_model_note": true }
+}

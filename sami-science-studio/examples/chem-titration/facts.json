@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "policy": { "cited_must_be_confirmed": false },
+  "labs": {
+    "titration": { "script": "labs/titration.py", "data": "data/titration.json" }
+  },
+  "facts": [
+    { "id": "ca", "statement": "Concentration of the hydrochloric acid in the flask", "value": 0.1, "unit": "mol/L", "display": "0.100", "method": "given", "source": "brief" },
+    { "id": "va", "statement": "Volume of hydrochloric acid in the flask", "value": 25.0, "unit": "mL", "display": "25.00", "method": "given", "source": "brief" },
+    { "id": "cb", "statement": "Concentration of the sodium hydroxide in the burette", "value": 0.1, "unit": "mol/L", "display": "0.100", "method": "given", "source": "brief" },
+    { "id": "drop", "statement": "Volume of one drop from the burette", "value": 0.05, "unit": "mL", "display": "0.05", "method": "given", "source": "brief (20 drops per mL, a usual figure for a burette)" },
+    { "id": "temp", "statement": "Temperature the model assumes", "value": 25, "unit": "°C", "display": "25", "method": "given", "source": "brief" },
+    { "id": "kw", "statement": "Ion product of water at 25 °C", "value": 1e-14, "unit": "", "method": "cited", "internal": true,
+      "source": { "title": "CRC Handbook of Chemistry and Physics", "locator": "Ionization constant of water, 25 °C (pKw = 14.00, rounded)" }, "confirmed": false },
+    { "id": "eq_neutral", "statement": "Neutralisation of hydrochloric acid by sodium hydroxide", "display": "HCl + NaOH → NaCl + H2O", "method": "computed",
+      "check": { "kind": "chem_balance", "equation": "HCl + NaOH -> NaCl + H2O" } },
+    { "id": "veq", "statement": "Volume of base at the equivalence point", "value": 25.0, "unit": "mL", "display": "25.00", "method": "computed",
+      "check": { "kind": "expr", "expr": "ca * va / cb" } },
+    { "id": "ph_before", "statement": "pH half a drop before the equivalence point", "value": 4.3008, "display": "4.30", "method": "computed",
+      "check": { "kind": "lab", "lab": "titration", "key": "ph_before_drop", "abs_tol": 0.0001 } },
+    { "id": "ph_after", "statement": "pH half a drop after the equivalence point", "value": 9.6988, "display": "9.70", "method": "computed",
+      "check": { "kind": "lab", "lab": "titration", "key": "ph_after_drop", "abs_tol": 0.0001 } },
+    { "id": "h_ratio", "statement": "How many times the hydrogen-ion concentration falls across that one drop", "value": 250002, "display": "250 000", "display_rel_tol": 0.001, "method": "computed",
+      "check": { "kind": "lab", "lab": "titration", "key": "h_ratio_one_drop", "abs_tol": 1 } },
+    { "id": "ind_low", "statement": "Phenolphthalein: lower end of the colour change (colourless below)", "value": 8.2, "display": "8.2", "method": "cited",
+      "source": { "title": "CRC Handbook of Chemistry and Physics", "locator": "Acid-base indicators table, phenolphthalein" }, "confirmed": false },
+    { "id": "ind_high", "statement": "Phenolphthalein: upper end of the colour change (pink above)", "value": 10.0, "display": "10.0", "method": "cited",
+      "source": { "title": "CRC Handbook of Chemistry and Physics", "locator": "Acid-base indicators table, phenolphthalein" }, "confirmed": false }
+  ]
+}

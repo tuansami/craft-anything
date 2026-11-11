@@ -1,0 +1,93 @@
+{
+  "spec_version": "1.0",
+  "id": "sample-ethanoic-acid-preparation",
+  "kind": "reference_reconstruction",
+  "title": "Laboratory Preparation of Ethanoic Acid (Acetic Acid)",
+  "language": "en",
+  "provenance": {
+    "source": "Reference video supplied by the channel owner (downloaded from Facebook, 1280x720).",
+    "observed_brand": "none visible",
+    "method": "24 frames sampled evenly plus full-size stills; scene timing is accurate to about 1.5 s.",
+    "audio_finding": "The file has no audio stream.",
+    "reuse": "Use as a style and structure reference; rebuild with your own models, wording and brand."
+  },
+  "builder_instructions": "Recreate a 36 s landscape 3D walkthrough of a distillation rig in one continuous camera move. The camera visits the reaction flask, the colour change, the condenser and the receiver, then pulls back for the balanced equation. Solid blue label chips with leader lines name each part; a white caption bar at the bottom carries one numbered sentence per step.",
+  "intent": {
+    "goal": "Explain how ethanol is oxidised to ethanoic acid and collected by distillation.",
+    "audience": "Secondary school chemistry students (IGCSE, GCSE, A-level).",
+    "takeaway": "Acidified dichromate oxidises ethanol; the acid distils over through a water-cooled condenser.",
+    "hook": "The orange mixture turns green as it reacts.",
+    "emotional_arc": ["clean overview", "guided tour", "colour change", "summary"]
+  },
+  "format": { "aspect": "16:9", "resolution": [1280, 720], "recommended_resolution": [1920, 1080], "fps": 30, "duration_s": 36, "platforms": ["youtube", "facebook_feed"], "cuts": 0 },
+  "style": {
+    "pack": "clean-bench",
+    "mood": "bright, friendly, textbook-clear",
+    "palette": {
+      "background_top": "#f7f9fc", "background_bottom": "#e3e8f1", "chip": "#1f49b6", "chip_text": "#ffffff", "caption_bg": "#ffffff", "caption_border": "#1f49b6", "caption_text": "#14213d",
+      "mantle": "#2f5bd8", "mantle_hot": "#ff7a59", "tubing": "#8fc3ff", "thermometer": "#ff4d4d", "dichromate_orange": "#f0b35a", "chromium_green": "#8cc98a", "bottle_amber": "#e0632a"
+    },
+    "typography": { "all": { "family": "geometric sans (Montserrat or Inter)", "weight": 700 }, "caption": { "size_pct_of_width": 1.7 }, "chip_small_line": { "weight": 500 } },
+    "materials": { "glass": "glossy clear glass with strong white reflections", "tubing": "soft translucent blue rubber", "metal": "brushed grey rods, black clamps", "mantle": "glossy blue shell with a glowing orange well" },
+    "lighting": { "type": "soft studio light, light shadows", "exposure": "high key" },
+    "background": "seamless white-to-pale-blue studio; objects far from the camera blur slightly",
+    "motion_language": "one smooth dolly through the rig; labels fade in with their leader lines; nothing overlaps the caption bar",
+    "transitions": "caption text cross-fades; no cuts"
+  },
+  "brand": { "wordmark": null, "title_chip": { "text": ["Laboratory Preparation of Ethanoic Acid", "(Acetic Acid)"], "position": "top-left", "style": "solid blue rounded box, white text" } },
+  "layout": {
+    "title_chip": { "x_pct": 5, "y_pct": 1, "w_pct": 15 },
+    "caption_bar": { "x_pct": 16, "y_pct": 87, "w_pct": 68, "h_pct": 8 },
+    "labels": "placed beside the part, joined by a thin blue line ending in a ringed dot",
+    "end_cards": { "equation": "top centre, white card with blue border", "conditions": "bottom right, small white card" }
+  },
+  "camera": {
+    "projection": "perspective", "fov_deg": 35, "depth_of_field": "shallow in close shots",
+    "moves": [
+      { "t": [0, 4.5], "shot": "wide: whole rig from the front left" },
+      { "t": [4.5, 13.5], "shot": "close on the round-bottom flask and heating mantle" },
+      { "t": [13.5, 19.5], "shot": "medium on the condenser, tracking right" },
+      { "t": [19.5, 27], "shot": "close on the condenser outlet and the conical flask" },
+      { "t": [27, 36], "shot": "pull back to the wide view" }
+    ]
+  },
+  "world": {
+    "objects": [
+      { "id": "rbf", "type": "round_bottom_flask", "contents": "orange liquid that turns green, with bubbles" },
+      { "id": "mantle", "type": "heating_mantle", "note": "blue body, glowing orange well, on a stirrer base with a dial" },
+      { "id": "thermometer", "type": "thermometer", "note": "red column, through a cork in the flask neck" },
+      { "id": "stands", "type": "clamp_stand", "count": 2 },
+      { "id": "condenser", "type": "liebig_condenser", "note": "slopes down to the right; droplets move inside" },
+      { "id": "tubing", "type": "rubber_tubing", "note": "one hose to the lower inlet, one long loop from the upper outlet" },
+      { "id": "receiver", "type": "conical_flask", "note": "graduated, collects clear liquid" },
+      { "id": "bottle", "type": "reagent_bottle", "label": "Ethanol", "colour": "amber with red cap" }
+    ]
+  },
+  "science": {
+    "domain": "chemistry", "topic": "oxidation of a primary alcohol; distillation", "level": "upper secondary",
+    "equations": [{ "id": "oxidation", "text": "CH₃CH₂OH + 2[O] → CH₃COOH + H₂O", "check": "chem_balance", "verified_here": "C 2, H 6, O 3 on each side" }],
+    "claims": [
+      { "text": "Orange Cr₂O₇²⁻ is reduced to green Cr³⁺ as ethanol is oxidised", "kind": "cited" },
+      { "text": "Cold water enters the condenser at the lower end and leaves at the upper end", "kind": "cited" }
+    ],
+    "notes": ["School courses usually specify heating under reflux for complete oxidation to the acid, then distillation; the video shows distillation only. Decide which your syllabus needs before reusing the storyline."]
+  },
+  "audio": { "voiceover": null, "music": null, "note": "Silent file; add your own music bed." },
+  "timeline": [
+    { "id": "title", "t_start": 0, "t_end": 4.5, "caption": "Ethanol is oxidised to ethanoic acid", "visual": "Whole rig; title chip fades in." },
+    { "id": "step1", "t_start": 4.5, "t_end": 9, "caption": "1 · Gentle heating of ethanol with acidified K₂Cr₂O₇", "labels": ["Ethanol + K₂Cr₂O₇ | acidified with H₂SO₄", "Heating mantle"], "visual": "Push in to the flask; the well glows, the liquid bubbles." },
+    { "id": "step2", "t_start": 9, "t_end": 13.5, "caption": "2 · Orange Cr₂O₇²⁻ is reduced to green Cr³⁺ as ethanol is oxidised", "labels": ["Ethanol + K₂Cr₂O₇ | acidified with H₂SO₄", "Heating mantle"], "visual": "The liquid changes from orange through olive to green." },
+    { "id": "step3", "t_start": 13.5, "t_end": 19.5, "caption": "3 · Cold water enters the condenser at the lower end, leaves at the upper end", "labels": ["Liebig condenser", "Cold water in | (lower end)", "Water out | (upper end)"], "visual": "Track along the condenser; small blue beads show the water moving." },
+    { "id": "step4", "t_start": 19.5, "t_end": 27, "caption": "4 · Vapour condenses and ethanoic acid drips into the conical flask", "labels": ["Liebig condenser", "Conical flask", "Ethanoic acid | (product)"], "visual": "Drops fall from the outlet into the receiver." },
+    {
+      "id": "summary", "t_start": 27, "t_end": 36, "caption": null, "visual": "Wide view, the flask now green.",
+      "cards": [
+        { "title": "Balanced Chemical Equation", "equation": "CH₃CH₂OH + 2[O] → CH₃COOH + H₂O", "under_labels": ["Ethanol", "Oxidising agent (K₂Cr₂O₇ / H₂SO₄)", "Ethanoic acid", "Water"] },
+        { "title": "Conditions", "bullets": ["Oxidising agent: K₂Cr₂O₇ / H₂SO₄", "Temperature: gentle heating", "Acid: concentrated H₂SO₄"] }
+      ]
+    }
+  ],
+  "render": { "engine": "sami-science-studio", "scene_type": "3d", "components": ["lab.conicalFlask", "lab.stand", "lab.bottle", "ui.callout", "ui.caption", "ui.card"], "missing_components": ["round-bottom flask", "heating mantle", "Liebig condenser", "tubing", "thermometer"] },
+  "avoid": ["narration", "dark backgrounds", "more than three labels on screen", "captions longer than one line at 1080p"],
+  "qa_checklist": ["The equation balances.", "Water enters the condenser at the lower end.", "The colour runs orange to green, never the reverse.", "Every label's line ends on the part it names."]
+}

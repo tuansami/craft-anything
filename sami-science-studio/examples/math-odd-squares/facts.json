@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "policy": { "cited_must_be_confirmed": true },
+  "labs": { "odds": { "script": "labs/odds.py", "data": "data/odds.json" } },
+  "facts": [
+    { "id": "odd_sum", "statement": "The sum of the first n odd numbers equals n squared", "method": "computed",
+      "check": { "kind": "identity", "lhs": "Sum(2*k - 1, (k, 1, n))", "rhs": "n**2", "symbols": { "n": "positive integer", "k": "positive integer" } } },
+    { "id": "n_max", "statement": "Largest n for which the sum was also added up directly", "value": 1000, "display": "1 000", "method": "computed",
+      "check": { "kind": "lab", "lab": "odds", "key": "n_max" } },
+    { "id": "mismatches", "statement": "Cases up to n_max where the direct sum differs from n squared", "value": 0, "method": "computed", "internal": true,
+      "check": { "kind": "lab", "lab": "odds", "key": "mismatches" } },
+    { "id": "shown", "statement": "How many odd numbers the picture adds", "value": 5, "display": "5", "internal": true, "method": "computed",
+      "check": { "kind": "lab", "lab": "odds", "key": "shown" } },
+    { "id": "last_odd", "statement": "The fifth odd number", "value": 9, "display": "9", "also_display": ["1 + 3 + 5 + 7 + 9"], "method": "computed",
+      "check": { "kind": "lab", "lab": "odds", "key": "last_odd" } },
+    { "id": "last_sum", "statement": "Sum of the first five odd numbers", "value": 25, "display": "25", "internal": true, "method": "computed",
+      "check": { "kind": "lab", "lab": "odds", "key": "last_sum" } }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "space-mars-year",
+  "title": "A year on Mars, from its distance alone",
+  "channel": "pure-science",
+  "style": "midnight-lab",
+  "format": "9x16",
+  "fps": 30,
+  "duration_s": 20,
+  "storyboard": "storyboard.json",
+  "scene": "scenes/main.js",
+  "data": { "kepler": "data/kepler.json" }
+}

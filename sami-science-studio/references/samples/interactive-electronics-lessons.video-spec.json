@@ -1,0 +1,78 @@
+{
+  "spec_version": "1.0",
+  "id": "sample-interactive-electronics-lessons",
+  "kind": "reference_reconstruction",
+  "title": "ESP Labs: thirteen interactive microcontroller lessons",
+  "language": "en",
+  "provenance": {
+    "source": "Reference video supplied by the channel owner (downloaded from Facebook, 1280x720).",
+    "observed_brand": "ESP Labs / FIELD LAB",
+    "method": "24 frames sampled evenly plus full-size stills.",
+    "audio_finding": "The file has no audio stream.",
+    "what_it_is": "A screen recording of a web app, not a rendered animation: a pointer clicks through thirteen lessons, about 8 s each. Each lesson has a live isometric 3D scene on the left and a control panel on the right.",
+    "reuse": "A model for the later 'machines and electronics' channel, and the source of the paper-blueprint style pack."
+  },
+  "builder_instructions": "Recreate a 108 s landscape tour of an interactive lesson page on cream graph paper. A top strip lists thirteen numbered lessons with line icons; the current one is underlined in rust. Left: an isometric 3D scene of a development board on a breadboard with coloured jumper wires and the device for that lesson, animated by a running simulation. Right: a panel with a dark Pause button, four tabs, three numbered points, toggles, live value tiles and a serial monitor. A caption box at the bottom left states the lesson in one sentence. As a video, build each lesson as one beat and move a pointer between them.",
+  "intent": {
+    "goal": "Show that each electronics concept can be run, watched and changed, not just read about.",
+    "audience": "Hobbyists and students starting with microcontrollers.",
+    "takeaway": "Thirteen small, working circuits, each with its code and live values.",
+    "hook": "A tiny display, lights and radios, all running in the browser.",
+    "emotional_arc": ["tidy workbench", "steady stream of small wins"]
+  },
+  "format": { "aspect": "16:9", "resolution": [1280, 720], "recommended_resolution": [1920, 1080], "fps": 30, "duration_s": 108.5, "platforms": ["facebook_feed", "youtube"], "cuts": 0 },
+  "style": {
+    "pack": "paper-blueprint",
+    "mood": "calm engineering notebook",
+    "palette": {
+      "paper": "#f3eee2", "grid": "rgba(60,50,30,0.07)", "ink": "#1e2a44", "muted": "#6a6f7c", "rust": "#c2532d", "button_dark": "#22344f",
+      "board": "#1b1c20", "breadboard": "#f2efe6", "pins": "#d9a13a", "wire_colours": ["#e14b3b", "#3fae5a", "#3b6cf0", "#e0a23a", "#7a5cc4"], "signal_green": "#3f9d6b"
+    },
+    "typography": {
+      "headings": { "family": "grotesque sans (Space Grotesk or Inter)", "weight": 600 },
+      "labels_and_values": { "family": "monospace (IBM Plex Mono or JetBrains Mono)", "size": "small", "case": "mixed" },
+      "body": { "family": "same sans", "weight": 400 }
+    },
+    "materials": "flat-shaded isometric models with thin dark outlines, no gloss; soft contact shadows on the paper",
+    "lighting": "even, shadowless apart from contact shadows",
+    "background": "cream paper with a fine square grid",
+    "motion_language": "simulation-driven: LEDs glow, radio rings expand, text types on the display, values tick; interface changes are instant",
+    "transitions": "none: the pointer clicks and the page changes"
+  },
+  "brand": { "wordmark": { "text": "ESP Labs / FIELD LAB", "position": "top-left", "icon": "small chip glyph in rust" }, "replace_with": "your channel or series name" },
+  "layout": {
+    "top_bar": { "h_pct": 6, "left": "wordmark", "right": ["Workbench (active)", "Lessons 13", "Components", "sound", "help"] },
+    "lesson_strip": { "y_pct": 7, "h_pct": 10, "items": 13, "item": "number in a small circle, line icon, short name; current item rust with an underline", "right": "All lessons link, previous/next buttons" },
+    "lesson_title": { "y_pct": 18, "text_size": "large", "prefix": "rust lesson number", "suffix": "small code tag such as L07", "right": "progress 0/13 done, pager 07 / 13" },
+    "scene": { "x_pct": 1, "y_pct": 24, "w_pct": 71, "h_pct": 74, "top_left": "3D / Schematic switch", "top_right": "hint in rust monospace", "bottom_right": "zoom, reset and full-screen buttons", "time_tag": "t = 3.4 s" },
+    "caption": { "x_pct": 2, "y_pct": 88, "style": "paper box with a rust left edge", "text": "L07 · Poll status every 500 ms; reconnect when the link drops." },
+    "panel": { "x_pct": 73, "y_pct": 24, "w_pct": 26, "parts": ["status dot and word (running)", "Pause button with SPACE hint and a restart button", "tabs: Overview, Learn, Pinout, Code", "one paragraph", "three numbered points with bold lead-ins", "two toggles", "2x3 value tiles", "serial monitor with line numbers"] }
+  },
+  "camera": { "projection": "isometric (orthographic, about 30° elevation)", "moves": "none; the scene can be zoomed by hand" },
+  "world": {
+    "objects": [
+      { "id": "board", "type": "dev_board", "name": "T-Display-S3 style board with a small colour display, BOOT button and USB-C" },
+      { "id": "breadboard", "type": "breadboard" }, { "id": "wires", "type": "jumper_wires" },
+      { "id": "per_lesson", "type": "varies", "list": ["RGB LED", "potentiometer", "push buttons", "Wi-Fi access points and a router with expanding rings", "laptop with a browser", "RFID reader and card", "NFC tag", "phone", "I2S amplifier and round speaker"] },
+      { "id": "tags", "type": "code_tags", "note": "small rust tags such as 'from line 13' point from a part to the code line that drives it" }
+    ]
+  },
+  "science": {
+    "domain": "electronics / embedded programming", "level": "beginner to intermediate",
+    "lessons": ["01 First circuit: RGB LED", "02 Colour mixing with LEDC", "03 Buttons and debounce", "04 Hello, 1.9\" display", "05 Display + buttons menu", "06 Wi-Fi scan", "07 Wi-Fi connect", "08 Host a web page", "09 OTA update", "10 RFID access (13.56 MHz)", "11 NFC tags and NDEF", "12 Bluetooth LE", "13 Audio over I2S"],
+    "sample_values_shown": { "lesson_07": { "WiFi.status()": "3 WL_CONNECTED", "Time since begin": "3.3 s", "Dots printed": 4, "IP address": "192.168.1.42", "RSSI": "-61 dBm", "Connect attempts": 1, "serial": ["Connecting....", "IP: 192.168.1.42", "RSSI: -63"] } },
+    "accuracy_model": "Values come from a running simulation of the sketch, so the scene, the tiles and the serial log always agree."
+  },
+  "audio": { "voiceover": null, "music": null, "note": "Silent file." },
+  "timeline": [
+    { "id": "lessons_01_03", "t_start": 0, "t_end": 25, "visual": "RGB LED lights in red, green and blue; LEDC colour mixing with a slider; button presses with debounce." },
+    { "id": "lessons_04_05", "t_start": 25, "t_end": 42, "visual": "Text appears on the board's display; a menu moves with two buttons." },
+    { "id": "lessons_06_07", "t_start": 42, "t_end": 59, "visual": "Four access points and a router; the scan lists networks; the board joins and shows its IP address." },
+    { "id": "lessons_08_09", "t_start": 59, "t_end": 76, "visual": "A laptop loads a page served by the board and switches the LED; a firmware update fills the spare slot and the board restarts." },
+    { "id": "lessons_10_11", "t_start": 76, "t_end": 92, "visual": "A card is held over a blue RFID reader; a red NFC board writes a text record." },
+    { "id": "lessons_12_13", "t_start": 92, "t_end": 108.5, "visual": "A phone writes to the board over Bluetooth LE; an amplifier board drives a round speaker." }
+  ],
+  "render": { "engine": "sami-science-studio", "scene_type": "2d interface plus isometric 3d", "components": ["paper-blueprint style", "ui.card", "ui.caption"], "missing_components": ["isometric camera preset", "interface kit (tabs, tiles, serial monitor)", "electronics models"] },
+  "avoid": ["glossy materials", "dark themes", "decorative animation that the simulation does not drive"],
+  "qa_checklist": ["Tile values, display text and serial log agree at every moment.", "Each lesson is on screen long enough to read its caption.", "The current lesson is marked in the strip."]
+}

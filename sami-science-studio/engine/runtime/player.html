@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Science Studio player</title>
+<script type="importmap">
+{"imports":{
+  "three":"/engine/node_modules/three/build/three.module.js",
+  "three/addons/":"/engine/node_modules/three/examples/jsm/",
+  "katex":"/engine/node_modules/katex/dist/katex.mjs",
+  "studio":"/engine/runtime/index.js"
+}}
+</script>
+<link rel="stylesheet" href="/engine/node_modules/katex/dist/katex.min.css">
+<link rel="stylesheet" href="/engine/node_modules/@fontsource/inter/400.css">
+<link rel="stylesheet" href="/engine/node_modules/@fontsource/inter/600.css">
+<link rel="stylesheet" href="/engine/node_modules/@fontsource/inter/700.css">
+<link rel="stylesheet" href="/engine/node_modules/@fontsource/inter/800.css">
+<link rel="stylesheet" href="/engine/node_modules/@fontsource/jetbrains-mono/400.css">
+<link rel="stylesheet" href="/engine/node_modules/@fontsource/jetbrains-mono/700.css">
+<link rel="stylesheet" href="/engine/runtime/base.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl"></canvas>
+  <svg id="art" xmlns="http://www.w3.org/2000/svg"></svg>
+  <svg id="lines" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div id="overlay"></div>
+</div>
+<div id="scrub" hidden><button id="pp">⏸</button><input id="bar" type="range" min="0" max="1000" value="0"><span id="clock"></span></div>
+<script type="module" src="/engine/runtime/boot.js"></script>
+</body>
+</html>

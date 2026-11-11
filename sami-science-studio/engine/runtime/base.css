@@ -1,0 +1,38 @@
+/* Structure only. Every colour, font and radius is a CSS variable set from the style pack JSON. */
+html, body { margin: 0; background: #000; overflow: hidden; }
+#stage { position: relative; overflow: hidden; background: var(--bg-image, var(--bg)); font-family: var(--font), system-ui, sans-serif; color: var(--text); }
+#stage > canvas, #stage > svg, #overlay { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+#stage > svg { overflow: visible; pointer-events: none; }
+#overlay > * { position: absolute; box-sizing: border-box; will-change: opacity, transform; }
+#err { position: fixed; inset: 20px; color: #f66; font: 14px monospace; white-space: pre-wrap; z-index: 9; }
+#scrub { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 10px; padding: 8px 12px; background: #000c; color: #fff; font: 13px monospace; z-index: 8; }
+#scrub input { flex: 1; }
+#scrub[hidden] { display: none; }
+
+.wordmark { font-weight: 700; font-size: 34px; letter-spacing: .2px; background: var(--wordmark); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.panel { background: var(--panel); border: var(--border-w, 2px) solid var(--border); border-radius: var(--radius); box-shadow: var(--panel-shadow, none); backdrop-filter: var(--panel-blur, none); }
+
+.header { display: flex; align-items: center; gap: 24px; padding: 22px 28px 22px 34px; }
+.header::before { content: ""; position: absolute; left: 12px; top: 16px; bottom: 16px; width: 6px; border-radius: 3px; background: var(--header-bar, var(--border)); }
+.header .titles { flex: 1; min-width: 0; }
+.header .title { font-weight: 800; font-size: var(--title-size, 44px); line-height: 1.12; text-transform: var(--title-case, none); letter-spacing: var(--title-track, 0); color: var(--title, var(--text)); }
+.header .subtitle { margin-top: 8px; font-size: 27px; color: var(--muted); }
+.pill { flex: none; padding: 12px 26px; border: 2px solid var(--accent); border-radius: 999px; color: var(--accent); font-weight: 700; font-size: 24px; letter-spacing: .6px; text-transform: uppercase; white-space: nowrap; }
+
+.card { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 22px; padding: 30px 36px; text-align: center; }
+.card .heading { font-weight: 700; font-size: 30px; color: var(--accent); }
+.card .math { font-size: 40px; color: var(--text); }
+.card .note { font-size: 25px; color: var(--muted); line-height: 1.35; }
+.card .row { display: flex; align-items: center; gap: 26px; width: 100%; }
+.card .bar { flex: 1; height: 22px; border-radius: 11px; background: var(--track, rgba(255,255,255,.08)); overflow: hidden; }
+.card .bar i { display: block; height: 100%; width: 0; border-radius: 11px; background: var(--accent); }
+.card .value { font-weight: 700; font-size: 27px; font-variant-numeric: tabular-nums; min-width: 190px; text-align: right; }
+.card svg { display: block; overflow: visible; }
+
+.chip { padding: 12px 22px; font-weight: 700; font-size: 26px; white-space: nowrap; background: var(--chip-bg, var(--panel)); color: var(--chip-text, var(--text)); border: 2px solid var(--chip-border, var(--accent2)); border-radius: var(--chip-radius, 8px); }
+.chip small { display: block; font-weight: 500; font-size: 20px; opacity: .85; }
+.caption { padding: 16px 28px; font-weight: 700; font-size: 32px; text-align: center; }
+.hl1 { color: var(--accent); } .hl2 { color: var(--accent2); } .hl3 { color: var(--accent3); } .muted { color: var(--muted); }
+.katex { font-size: 1em; }
+.katex-display { margin: 0; }

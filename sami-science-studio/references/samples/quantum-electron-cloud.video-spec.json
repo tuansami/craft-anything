@@ -1,0 +1,102 @@
+{
+  "spec_version": "1.0",
+  "id": "sample-quantum-electron-cloud",
+  "kind": "reference_reconstruction",
+  "title": "The Quantum Electron Cloud of a drug-like molecule",
+  "language": "en",
+  "provenance": {
+    "source": "Reference video supplied by the channel owner (downloaded from Facebook, 720x1280).",
+    "observed_brand": "HiddenPhysicsLab",
+    "method": "24 frames sampled evenly (one every 2.5 s) plus full-size stills; scene timing is accurate to about 1.5 s.",
+    "audio_finding": "Music only: speech recognition found no speech.",
+    "unreadable": ["The subtitle under 'Change one group, X' was mid-fade in every sampled frame."],
+    "reuse": "Use as a style and structure reference. Every number in it comes from a real calculation; a remake needs its own calculation, not these numbers copied."
+  },
+  "builder_instructions": "Recreate a 60 s vertical 3D explainer built on a real density-functional calculation. One molecule stays centre stage and changes representation: ball-and-stick, electron point cloud, density isosurface, electrostatic-potential surface, frontier orbitals, then two substituted variants. A centred title and subtitle change per chapter; a panel under the molecule shows the equation, plot or energy diagram for that chapter. The last chapter states the limits of the method. No narration.",
+  "intent": {
+    "goal": "Show what an electron density is, how DFT computes it, and what substituents do to frontier orbitals.",
+    "audience": "Undergraduate chemistry and physics students, science enthusiasts.",
+    "takeaway": "A molecule is a cloud of electron density; computed orbital energies describe it but do not predict a drug's effect.",
+    "hook": "Atoms are not little balls.",
+    "emotional_arc": ["familiar model", "it dissolves into a cloud", "the machinery", "colourful payoffs", "honest limits"]
+  },
+  "format": { "aspect": "9:16", "resolution": [720, 1280], "recommended_resolution": [1080, 1920], "fps": 30, "duration_s": 60, "platforms": ["facebook_reels", "youtube_shorts"], "cuts": 0 },
+  "style": {
+    "pack": "midnight-lab",
+    "variant": "deep-space lab: darker, no bench, floating subject",
+    "mood": "quiet, awe, research-grade",
+    "palette": {
+      "background": "#03060d", "grid": "rgba(120,160,220,0.06)", "panel": "rgba(8,14,28,0.8)", "panel_border": "rgba(120,150,210,0.25)",
+      "text": "#ffffff", "muted": "#b9c4d9", "amber": "#f0a84a", "teal": "#3fd0b4", "violet": "#b08cff",
+      "esp_negative": "#c2334d", "esp_neutral": "#e8e8ee", "esp_positive": "#2f6de0", "orbital_plus": "#e0a23a", "orbital_minus": "#2fc7b0",
+      "atoms": { "C": "#8a8f98", "H": "#f2f2f2", "N": "#4a6cf0", "O": "#e0324a" }
+    },
+    "typography": {
+      "title": { "family": "condensed technical sans (DIN, Bahnschrift or Barlow)", "weight": 700, "align": "centre", "size_pct_of_width": 5.2 },
+      "subtitle": { "family": "same", "weight": 500, "colour": "muted or one accent" },
+      "maths": { "family": "serif italic (KaTeX)", "colour": "white" },
+      "axis_labels": { "family": "same sans", "size": "small" }
+    },
+    "materials": { "atoms": "matte spheres with soft speculars", "bonds": "thin pale sticks", "isosurface": "milky translucent shell, bonds visible inside", "orbitals": "glossy opaque lobes", "point_cloud": "small blue-white dots, denser near nuclei" },
+    "lighting": "soft top light, faint rim, subject glows against a dark vignette",
+    "background": "near-black navy with a faint perspective grid, blurred conical-flask silhouettes at mid height and sparse bokeh dots",
+    "motion_language": "the molecule turns slowly all the time; representations cross-dissolve or wipe across the molecule; panels fade",
+    "transitions": "cross-fades of 0.5 to 0.8 s; one fly-through into the surface; no cuts"
+  },
+  "brand": { "wordmark": { "text": "HiddenPhysicsLab", "position": "top-left", "fill": "animated rainbow gradient", "weight": 600 }, "replace_with": "your channel wordmark" },
+  "layout": {
+    "wordmark": { "x_pct": 5, "y_pct": 6.5 }, "title": { "y_pct": 10.5 }, "subtitle": { "y_pct": 14.5 }, "extra_line": { "y_pct": 19.5 },
+    "subject": { "y_pct_from": 22, "y_pct_to": 60 }, "panel": { "x_pct": 5, "y_pct": 62, "w_pct": 90, "h_pct": 24 },
+    "note": "The bottom 14% stays empty: room for the platform's own interface."
+  },
+  "camera": { "projection": "perspective", "fov_deg": 30, "moves": [{ "t": [0, 35], "shot": "medium on the molecule, slow orbit" }, { "t": [35, 37.5], "shot": "fly inside the density surface along a bond" }, { "t": [37.5, 60], "shot": "medium, slow orbit" }] },
+  "world": {
+    "objects": [
+      { "id": "molecule", "type": "ball_and_stick", "name": "N-methyl-4-X-benzamide (hypothetical scaffold)", "variants": ["X = H", "X = NH₂", "X = NO₂"] },
+      { "id": "cloud", "type": "point_cloud", "source": "points sampled from the computed density" },
+      { "id": "density", "type": "isosurface", "value": "ρ = 0.002 e/bohr³" },
+      { "id": "esp", "type": "coloured_isosurface", "map": "electrostatic potential on the density surface, red negative to blue positive" },
+      { "id": "homo", "type": "orbital_isosurface", "phases": ["+ amber", "− teal"] },
+      { "id": "lumo", "type": "orbital_isosurface", "phases": ["+ amber", "− teal"] },
+      { "id": "dipole", "type": "arrow", "label": "μ" }
+    ]
+  },
+  "science": {
+    "domain": "chemistry / quantum chemistry", "topic": "electron density, Kohn–Sham DFT, frontier orbitals, substituent effects", "level": "undergraduate",
+    "computation": { "program": "PySCF", "method": "B3LYP/6-31G*", "phase": "gas", "geometry": "optimised with the same method", "scf_cycles": 13, "total_energy_hartree": -440.2523, "electrons": 72 },
+    "values_shown": {
+      "X=H": { "homo_eV": -6.70, "lumo_eV": -0.92, "gap_eV": 5.79, "dipole_D": 3.5 },
+      "X=NH2": { "homo_eV": -5.64, "lumo_eV": -0.43, "gap_eV": 5.21, "dipole_D": 4.2, "note": "HOMO +1.06 eV (raised); ring + NH₂ hold 93%" },
+      "X=NO2": { "homo_eV": -7.22, "lumo_eV": -2.71, "gap_eV": 4.51, "dipole_D": 5.1, "note": "LUMO −1.80 eV (lowered); 54% on NO₂ alone; arrow labelled μ = 5.13 D" },
+      "esp_extremes_kcal_mol": { "carbonyl_oxygen": -46, "amide_hydrogen": 53 }
+    },
+    "consistency_checks_done_here": ["HOMO shift −6.70 + 1.06 = −5.64", "gaps 5.21 and 4.51 match LUMO − HOMO", "gap for X = H is 5.78 from the rounded energies; 5.79 is the unrounded difference"],
+    "caveats_stated_on_screen": ["Orbital energies and the gap depend on the functional and basis set.", "They are model-dependent descriptors, not predictions of potency, binding or clinical efficacy.", "Hypothetical scaffold, gas phase, one geometry."],
+    "how_to_reproduce": "Write a lab script that runs the calculation (PySCF needs Linux or macOS), exports cube files for the density, ESP and orbitals, and prints every number above; the ledger then checks each on-screen value against the script."
+  },
+  "audio": { "voiceover": null, "music": { "present": true, "mood": "slow ambient pads, light pulse", "role": "continuous bed" }, "loudness": "about −16 dB mean" },
+  "timeline": [
+    { "id": "title", "t_start": 0, "t_end": 5, "title": "The Quantum Electron Cloud", "subtitle": "of a drug-like molecule", "subtitle_colour": "amber", "visual": "Atoms drift in and bond into a ball-and-stick model.",
+      "panel": { "heading": "Ball-and-stick: nuclei and bonds", "legend": ["carbon", "hydrogen", "nitrogen", "oxygen"], "lines": ["hypothetical scaffold: N-methyl-4-X-benzamide, X = H", "geometry optimised with DFT (B3LYP/6-31G*, PySCF)"] } },
+    { "id": "density", "t_start": 5, "t_end": 12.5, "title": "Atoms are not little balls", "subtitle": "electrons spread into one density ρ(r)", "visual": "Spheres shrink to nuclei; thousands of dots appear around the skeleton; a translucent surface wipes across from the left until it encloses the molecule.",
+      "panel": { "lines": ["isosurface ρ(r) = 0.002 e/bohr³", "∫ρ dV = 72.00   N = 72 electrons", "integrated on the DFT grid from the computed density"] } },
+    { "id": "dft", "t_start": 12.5, "t_end": 20, "title": "Kohn–Sham DFT", "title_colour": "violet", "subtitle": "solve for orbitals, build the density, repeat", "subtitle_later": "self-consistent after 13 cycles · E = −440.2523 hartree",
+      "panel": { "equations": ["[−½∇² + v_ext + v_H + v_xc] φ_i = ε_i φ_i", "ρ(r) = Σ_i |φ_i(r)|²", "v_xc = δE_xc/δρ"], "plot": { "type": "line with markers, log y", "y": "|E_i − E_final| (hartree)", "x": "SCF iteration", "colour": "violet", "tag": "B3LYP / 6-31G*", "animation": "points appear one per cycle, falling to 10⁻¹¹" } } },
+    { "id": "esp", "t_start": 20, "t_end": 27.5, "title": "Electrostatic potential", "subtitle": "what a + test charge feels on the surface", "visual": "The surface takes on colour: red over the carbonyl oxygen, blue near the N–H.",
+      "labels": [{ "text": "C=O oxygen −46 kcal/mol", "colour": "red", "side": "upper right" }, { "text": "53 kcal/mol N–H hydrogen", "colour": "blue", "side": "lower right" }],
+      "panel": { "colourbar": { "left": "electron-rich", "right": "electron-poor", "unit": "kcal/mol", "ticks": [-40, 0, 40] } } },
+    { "id": "orbitals", "t_start": 27.5, "t_end": 35, "title": "Frontier orbitals", "subtitle": "HOMO can give electrons · LUMO can accept them", "extra_lines": ["HOMO  ε_HOMO = −6.70 eV", "LUMO  ε_LUMO = −0.92 eV"], "visual": "HOMO lobes, then LUMO lobes, on the skeleton; small legend '+ phase' amber, '− phase' teal.",
+      "panel": { "diagram": "energy levels in eV with HOMO and LUMO highlighted and electron pairs drawn", "equation": "ΔE = ε_LUMO − ε_HOMO = 5.79 eV", "lines": ["an orbital-energy descriptor", "B3LYP/6-31G*, gas phase"] } },
+    { "id": "inside", "t_start": 35, "t_end": 37.5, "title": "Inside the cloud", "subtitle": "densest around nuclei and along bonds", "visual": "The camera passes through the surface and travels along a bond." },
+    { "id": "change", "t_start": 37.5, "t_end": 40, "title": "Change one group, X", "subtitle": "(unreadable in the samples)", "visual": "Back outside; the ESP surface returns; the panel clears to an empty energy axis." },
+    { "id": "donor", "t_start": 40, "t_end": 42.5, "title": "X = NH₂  donor", "title_colour": "amber", "subtitle": "HOMO +1.06 eV (raised) · ring + NH₂ hold 93%", "visual": "HOMO of the amino variant; caption 'HOMO of X = NH₂'.",
+      "panel": { "diagram": "two columns: X = H reference, X = NH₂ donor; HOMO amber, LUMO teal, gap arrow violet with its value; dipole under each column" } },
+    { "id": "acceptor", "t_start": 42.5, "t_end": 45, "title": "X = NO₂  acceptor", "title_colour": "teal", "subtitle": "LUMO −1.80 eV (lowered) · 54% on NO₂ alone", "visual": "LUMO of the nitro variant inside a faint ESP shell; caption 'LUMO of X = NO₂'.", "panel": { "diagram": "third column added: X = NO₂ acceptor" } },
+    { "id": "compare", "t_start": 45, "t_end": 50, "title": "Substitution moves the frontier", "subtitle": "gap: X = NO₂ 4.51 < X = NH₂ 5.21 < X = H 5.79", "visual": "ESP surface of the nitro variant with a white dipole arrow labelled μ = 5.13 D.", "panel": { "diagram": "three columns joined by dotted lines; HOMO and LUMO tags at the right" } },
+    { "id": "limits", "t_start": 50, "t_end": 60, "title": "A descriptor, not a prediction", "title_colour": "violet", "visual": "The ESP surface keeps turning.",
+      "panel": { "lines_appearing_in_order": ["Orbital energies and the gap depend on the functional and basis set (here B3LYP/6-31G*).", "They are model-dependent descriptors — not predictions of potency, binding or clinical efficacy. (amber)", "The molecule is a hypothetical scaffold, computed in the gas phase, at one geometry.", "Electrons are computed. Efficacy is measured. (bold)"] } }
+  ],
+  "render": { "engine": "sami-science-studio", "scene_type": "3d", "components": ["lab.molecule", "svg.chart", "ui.card", "ui.callout"], "missing_components": ["isosurface from cube data (marching cubes)", "point cloud", "centred title block", "energy-level diagram"] },
+  "avoid": ["narration", "claims about medical effect", "numbers that no calculation produced", "fast camera moves"],
+  "qa_checklist": ["Every number on screen is printed by the lab script.", "Gap = LUMO − HOMO in every column.", "Colour bar direction matches the surface: red negative, blue positive.", "The limits chapter stays on screen long enough to read (about 10 s)."]
+}

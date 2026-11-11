@@ -1,0 +1,58 @@
+{
+  "spec_version": "1.0",
+  "id": "chem-titration",
+  "title": "The one-drop flip: titrating HCl with NaOH",
+  "language": "en",
+  "intent": {
+    "goal": "Show why a titration's end point is so sharp: one drop moves the pH by more than five units.",
+    "audience": "Students aged 15 to 20 and curious adults; US and European English.",
+    "takeaway": "Near the equivalence point there is almost no acid left to resist the base, so one drop flips the solution.",
+    "hook": "A colourless flask turns pink from a single drop.",
+    "emotional_arc": ["calm setup", "tension as the curve stays flat", "the snap", "the tidy reason"]
+  },
+  "format": { "aspect": "9:16", "resolution": [1080, 1920], "fps": 30, "duration_s": 24, "platforms": ["youtube_shorts", "facebook_reels"] },
+  "style": { "pack": "midnight-lab" },
+  "science": {
+    "domain": "chemistry",
+    "topic": "strong acid - strong base titration",
+    "level": "upper secondary",
+    "model": "complete dissociation, ideal solution, additive volumes, 25 °C",
+    "caveats": ["Activities are taken equal to concentrations.", "One drop is taken as 0.05 mL.", "The pink of the indicator is drawn across its cited colour-change range; it is a display mapping, not a spectrum."],
+    "labs": ["labs/titration.py"]
+  },
+  "audio": { "voiceover": null, "music": { "mood": "calm, curious electronic pulse", "bpm": 92, "note": "Sample style is music only; the text carries the lesson." }, "sfx": ["soft drip on each drop", "low swell at the colour change"] },
+  "camera": { "projection": "perspective", "fov_deg": 28, "moves": "slow push from the whole apparatus to the flask, then a pull back; no cuts" },
+  "timeline": [
+    { "id": "hook", "t_start": 0, "t_end": 3, "purpose": "Promise the flip.", "visual": "Whole apparatus: burette on a stand over a conical flask, two reagent bottles. Title appears." },
+    { "id": "setup", "t_start": 3, "t_end": 7.5, "purpose": "Name what is where.", "visual": "Labels with leader lines for the burette and the flask. Card shows the neutralisation equation." },
+    { "id": "titrate", "t_start": 7.5, "t_end": 15, "purpose": "Build tension: lots of base, almost no change.", "visual": "Drops fall, the burette level sinks, the flask fills. Card draws the computed pH curve with a moving dot. Camera pushes in." },
+    { "id": "endpoint", "t_start": 15, "t_end": 19.5, "purpose": "The payoff.", "visual": "One drop hangs, falls, and the flask turns pink. The dot on the curve jumps. Label for the indicator." },
+    { "id": "result", "t_start": 19.5, "t_end": 24, "purpose": "The reason, in one line of maths.", "visual": "Camera pulls back to the pink flask. Card shows the equivalence-point formula and the model note." }
+  ],
+  "texts": {
+    "wordmark": { "text": "LumenLab", "role": "label" },
+    "title": { "text": "The one-drop flip", "role": "title", "beat": "hook", "until": "result" },
+    "subtitle": { "text": "Titrating HCl with NaOH", "role": "subtitle", "beat": "hook", "until": "result" },
+    "pill_setup": { "text": "Step 1 · Setup", "role": "pill", "structural": [1], "beat": "setup" },
+    "pill_titrate": { "text": "Step 2 · Titrate", "role": "pill", "structural": [2], "beat": "titrate" },
+    "pill_endpoint": { "text": "Step 3 · End point", "role": "pill", "structural": [3], "beat": "endpoint" },
+    "pill_result": { "text": "Result", "role": "pill", "beat": "result" },
+    "bottle_base": { "text": "NaOH|0.100 M", "role": "label", "facts": ["cb"] },
+    "bottle_acid": { "text": "HCl|0.100 M", "role": "label", "facts": ["ca"] },
+    "chip_base": { "text": "0.100 M NaOH<small>in the burette</small>", "role": "chip", "facts": ["cb"], "beat": "setup" },
+    "chip_acid": { "text": "25.00 mL of HCl<small>0.100 M + phenolphthalein</small>", "role": "chip", "facts": ["va", "ca"], "beat": "setup" },
+    "c1_heading": { "text": "1. Each OH⁻ removes one H⁺", "role": "heading", "structural": [1], "beat": "setup" },
+    "c1_math": { "text": "\\mathrm{HCl} + \\mathrm{NaOH} \\longrightarrow \\mathrm{NaCl} + \\mathrm{H_{2}O}", "role": "math", "facts": ["eq_neutral"], "tex_of": "eq_neutral", "beat": "setup" },
+    "c1_note": { "text": "Equal moles of acid and base leave only salt and water.", "role": "note", "beat": "setup" },
+    "c2_heading": { "text": "2. The pH hardly moves… until the end", "role": "heading", "structural": [2], "beat": "titrate" },
+    "axis_x": { "text": "mL NaOH", "role": "label" },
+    "axis_y": { "text": "pH", "role": "label" },
+    "readout": { "text": "V = {v} mL  ·  pH {ph}", "role": "note" },
+    "c3_heading": { "text": "3. One drop: pH {2|4.30} → {1|9.70}", "role": "heading", "structural": [3], "facts": ["ph_before", "ph_after"], "beat": "endpoint" },
+    "c3_note": { "text": "About {1|250 000 times} fewer H⁺ ions, from 0.05 mL of base", "role": "note", "facts": ["h_ratio", "drop"], "beat": "endpoint" },
+    "chip_pink": { "text": "Phenolphthalein turns pink<small>between pH 8.2 and 10.0</small>", "role": "chip", "facts": ["ind_low", "ind_high"], "beat": "endpoint" },
+    "c4_heading": { "text": "Equivalence point", "role": "heading", "beat": "result" },
+    "c4_math": { "text": "V_{eq} = \\dfrac{C_a V_a}{C_b} = 25.00\\ \\mathrm{mL}", "role": "math", "facts": ["veq"], "beat": "result" },
+    "c4_note": { "text": "Moles of base added = moles of acid. Model: ideal solution at 25 °C.", "role": "note", "facts": ["temp"], "beat": "result" }
+  }
+}

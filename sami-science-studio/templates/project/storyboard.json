@@ -1,0 +1,21 @@
+{
+  "spec_version": "1.0",
+  "id": "__ID__",
+  "title": "__TITLE__",
+  "language": "en",
+  "intent": { "goal": "", "audience": "", "takeaway": "", "hook": "", "emotional_arc": [] },
+  "format": { "aspect": "__ASPECT__", "fps": 30, "duration_s": 20, "platforms": [] },
+  "style": { "pack": "__STYLE__" },
+  "science": { "domain": "", "topic": "", "level": "", "model": "", "caveats": [], "labs": [] },
+  "audio": { "voiceover": null, "music": { "mood": "" }, "sfx": [] },
+  "camera": { "moves": "" },
+  "timeline": [
+    { "id": "hook", "t_start": 0, "t_end": 3, "purpose": "", "visual": "" },
+    { "id": "main", "t_start": 3, "t_end": 16, "purpose": "", "visual": "" },
+    { "id": "result", "t_start": 16, "t_end": 20, "purpose": "", "visual": "" }
+  ],
+  "texts": {
+    "wordmark": { "text": "__WORDMARK__", "role": "label" },
+    "title": { "text": "", "role": "title", "beat": "hook", "until": "result" }
+  }
+}

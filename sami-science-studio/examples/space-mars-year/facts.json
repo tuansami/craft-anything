@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "policy": { "cited_must_be_confirmed": false },
+  "labs": { "kepler": { "script": "labs/kepler.py", "data": "data/kepler.json" } },
+  "facts": [
+    { "id": "a_mars_km", "statement": "Semi-major axis of Mars's orbit, km", "value": 227956000, "unit": "km", "method": "cited", "internal": true,
+      "source": { "title": "NASA Mars Fact Sheet (NSSDCA)", "locator": "Orbital parameters: Semimajor axis (10^6 km) 227.956" }, "confirmed": false, "last_checked": "2026-11-11: value matched the fact sheet page (automated fetch, not a person)" },
+    { "id": "a_earth_km", "statement": "Semi-major axis of Earth's orbit, km", "value": 149598000, "unit": "km", "method": "cited", "internal": true,
+      "source": { "title": "NASA Earth Fact Sheet (NSSDCA)", "locator": "Orbital parameters: Semimajor axis (10^6 km) 149.598" }, "confirmed": false, "last_checked": "2026-11-11: value matched the fact sheet page (automated fetch, not a person)" },
+    { "id": "e_mars", "statement": "Eccentricity of Mars's orbit", "value": 0.0935, "method": "cited", "internal": true,
+      "source": { "title": "NASA Mars Fact Sheet (NSSDCA)", "locator": "Orbital parameters: Orbit eccentricity" }, "confirmed": false, "last_checked": "2026-11-11: value matched the fact sheet page (automated fetch, not a person)" },
+    { "id": "e_earth", "statement": "Eccentricity of Earth's orbit", "value": 0.0167, "method": "cited", "internal": true,
+      "source": { "title": "NASA Earth Fact Sheet (NSSDCA)", "locator": "Orbital parameters: Orbit eccentricity" }, "confirmed": false, "last_checked": "2026-11-11: value matched the fact sheet page (automated fetch, not a person)" },
+    { "id": "p_earth_days", "statement": "Earth's sidereal orbit period, days", "value": 365.256, "unit": "d", "method": "cited", "internal": true,
+      "source": { "title": "NASA Earth Fact Sheet (NSSDCA)", "locator": "Orbital parameters: Sidereal orbit period (days)" }, "confirmed": false, "last_checked": "2026-11-11: value matched the fact sheet page (automated fetch, not a person)" },
+    { "id": "p_mars_days", "statement": "Mars's measured sidereal orbit period, days", "value": 686.98, "unit": "d", "display": "687", "method": "cited",
+      "source": { "title": "NASA Mars Fact Sheet (NSSDCA)", "locator": "Orbital parameters: Sidereal orbit period (days) 686.980" }, "confirmed": false, "last_checked": "2026-11-11: value matched the fact sheet page (automated fetch, not a person)" },
+    { "id": "a_mars_au", "statement": "Mars's semi-major axis in units of Earth's", "value": 1.52379, "unit": "AU", "display": "1.524", "method": "computed",
+      "check": { "kind": "lab", "lab": "kepler", "key": "a_mars_au", "abs_tol": 0.00001 } },
+    { "id": "t_years", "statement": "Mars's orbital period from the third law, Earth years", "value": 1.88099, "unit": "yr", "display": "1.88", "method": "computed",
+      "check": { "kind": "lab", "lab": "kepler", "key": "t_mars_years", "abs_tol": 0.00001 } },
+    { "id": "t_days", "statement": "The same period in days", "value": 687.04, "unit": "d", "display": "687", "method": "computed",
+      "check": { "kind": "lab", "lab": "kepler", "key": "t_mars_days", "abs_tol": 0.01 } },
+    { "id": "agree", "statement": "Relative difference between the third-law period and the measured one", "value": 0.0000947, "display": "0.01", "display_scale": 100, "method": "computed",
+      "check": { "kind": "lab", "lab": "kepler", "key": "rel_diff_from_measured", "abs_tol": 0.00001 } }
+  ]
+}

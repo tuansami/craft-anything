@@ -1,0 +1,12 @@
+{
+  "id": "chem-titration",
+  "title": "The one-drop flip: titrating HCl with NaOH",
+  "channel": "demo-pure-science",
+  "style": "midnight-lab",
+  "format": "9x16",
+  "fps": 30,
+  "duration_s": 24,
+  "storyboard": "storyboard.json",
+  "scene": "scenes/main.js",
+  "data": { "titration": "data/titration.json" }
+}

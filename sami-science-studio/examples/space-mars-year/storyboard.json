@@ -1,0 +1,42 @@
+{
+  "spec_version": "1.0",
+  "id": "space-mars-year",
+  "title": "A year on Mars, from its distance alone",
+  "language": "en",
+  "intent": {
+    "goal": "Show that a planet's year follows from the size of its orbit (Kepler's third law), using Mars.",
+    "audience": "Ages 13 and up; space fans.",
+    "takeaway": "Farther from the Sun means a longer and slower trip: T = a^(3/2).",
+    "hook": "You can work out how long a Martian year is with one number.",
+    "emotional_arc": ["a claim", "a race you can watch", "the rule", "it matches the measurement"]
+  },
+  "format": { "aspect": "9:16", "resolution": [1080, 1920], "fps": 30, "duration_s": 20, "platforms": ["youtube_shorts", "facebook_reels"] },
+  "style": { "pack": "midnight-lab" },
+  "science": {
+    "domain": "space", "topic": "Kepler's third law; elliptical orbits", "level": "lower to upper secondary",
+    "model": "two-body orbits round the Sun, solved from Kepler's equation",
+    "caveats": ["Orbits are drawn in one plane with their closest points in the same direction; the real orbits are tilted and turned relative to each other.", "The Sun and planets are not drawn to scale.", "Both planets start at their closest point to the Sun; this is not a real date."],
+    "labs": ["labs/kepler.py"]
+  },
+  "audio": { "voiceover": null, "music": { "mood": "wide, slow synth pad with a soft pulse", "bpm": 80 }, "sfx": ["a quiet tick each time Earth completes a lap"] },
+  "camera": { "moves": "none: flat 2D view from above the orbits" },
+  "timeline": [
+    { "id": "hook", "t_start": 0, "t_end": 3, "purpose": "Make the claim.", "visual": "Sun, two faint orbits, Earth and Mars at their start points. Title." },
+    { "id": "orbit", "t_start": 3, "t_end": 12.5, "purpose": "Watch one Martian year.", "visual": "Both planets move with their true speeds for exactly one Mars orbit, leaving bright trails. A readout counts Earth years and laps." },
+    { "id": "law", "t_start": 12.5, "t_end": 20, "purpose": "Give the rule and the check.", "visual": "Planets rest. The card shows the third law with Mars's numbers and the comparison with the measured period." }
+  ],
+  "texts": {
+    "wordmark": { "text": "LumenLab", "role": "label" },
+    "title": { "text": "A year on Mars", "role": "title", "beat": "hook", "until": "law" },
+    "subtitle": { "text": "worked out from its distance alone", "role": "subtitle", "beat": "hook", "until": "law" },
+    "name_sun": { "text": "Sun", "role": "label" },
+    "name_earth": { "text": "Earth", "role": "label" },
+    "name_mars": { "text": "Mars", "role": "label" },
+    "readout": { "text": "{t} Earth years  ·  Earth {e} laps  ·  Mars {m} laps", "role": "caption" },
+    "c1_heading": { "text": "Mars orbits 1.524 times farther out than Earth", "role": "heading", "facts": ["a_mars_au"], "beat": "orbit" },
+    "c1_note": { "text": "A longer path, travelled more slowly. Both orbits are solved from Kepler's equation.", "role": "note", "beat": "orbit" },
+    "c2_heading": { "text": "Kepler's third law (T in years, a in Earth distances)", "role": "heading", "beat": "law" },
+    "c2_math": { "text": "T = a^{3/2} = 1.524^{3/2} = 1.88\\ \\text{years}", "role": "math", "facts": ["a_mars_au", "t_years"], "beat": "law" },
+    "c2_note": { "text": "That is 687 days. Measured: 687 days. They agree within 0.01%.", "role": "note", "facts": ["t_days", "p_mars_days", "agree"], "beat": "law" }
+  }
+}

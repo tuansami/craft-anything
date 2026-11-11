@@ -1,0 +1,115 @@
+{
+  "spec_version": "1.0",
+  "id": "sample-brown-ring-test",
+  "kind": "reference_reconstruction",
+  "title": "The Brown Ring Test: qualitative test for nitrate ions",
+  "language": "en",
+  "provenance": {
+    "source": "Reference video supplied by the channel owner (downloaded from Facebook, 720x1280).",
+    "observed_brand": "HiddenPhysicsLab",
+    "method": "24 frames sampled evenly plus full-size stills; scene timing is accurate to about 1 s.",
+    "audio_finding": "Music only: speech recognition found no speech.",
+    "reuse": "Use as a style and structure reference. Change the brand, wording and data; do not republish it as is."
+  },
+  "builder_instructions": "Recreate a 20 s vertical 3D lab animation in one continuous shot. A test tube in a rack is filled in two layers, a brown ring forms at the junction, and a ball-and-stick model of the complex appears. All teaching is on-screen text: a fixed header with a step pill, labels with leader lines, and one bottom card per step holding a heading, one equation and one supporting line. No narration.",
+  "intent": {
+    "goal": "Show the four steps of the brown ring test and the chemistry behind the ring.",
+    "audience": "Secondary and first-year university chemistry students.",
+    "takeaway": "Nitrate is reduced to NO at the acid junction; NO binds iron(II) and gives the brown ring.",
+    "hook": "A glowing ring appears between two clear liquids.",
+    "emotional_arc": ["orderly setup", "careful layering", "the ring ignites", "the molecule explains it"]
+  },
+  "format": {
+    "aspect": "9:16", "resolution": [720, 1280], "recommended_resolution": [1080, 1920], "fps": 30, "duration_s": 20,
+    "platforms": ["facebook_reels", "youtube_shorts"], "loopable": false, "cuts": 0
+  },
+  "style": {
+    "pack": "midnight-lab",
+    "mood": "calm, precise, slightly dramatic lab at night",
+    "palette": {
+      "background": "#060b16", "bench": "#131c3c", "panel": "rgba(10,19,38,0.86)", "panel_border": "#2c56b8",
+      "text": "#f4f7fc", "muted": "#9db3d9", "accent_amber": "#f5a524", "accent_teal": "#3ddbb0", "accent_blue": "#6ea8ff",
+      "rack": "#b5441f", "liquid_feso4": "#8fd9cf", "liquid_acid": "#c9d2e0", "ring_glow": "#ff8a3d"
+    },
+    "typography": {
+      "title": { "family": "humanist sans (Noto Sans or Inter)", "weight": 800, "case": "upper", "size_pct_of_width": 3.9 },
+      "subtitle": { "family": "same", "weight": 400, "colour": "muted blue" },
+      "equations": { "family": "serif maths (Computer Modern via KaTeX)", "colour": "white with teal and amber species" },
+      "labels": { "family": "same sans", "weight": 700 }
+    },
+    "materials": { "glass": "thin clear glass, bright Fresnel edges, soft vertical highlight", "liquid": "translucent, slightly emissive", "rack": "matte rust-orange block with round holes", "bottles": "frosted plastic, printed white labels" },
+    "lighting": { "key": "soft white from upper right", "rim": "cool blue from behind left", "glow": "additive orange at the ring with small white sparkles" },
+    "background": "plain dark navy wall, dark blue bench with a visible horizon line",
+    "motion_language": "slow eased camera moves, fades of 0.3 to 0.5 s, nothing bounces",
+    "transitions": "cross-fades between step cards; no cuts"
+  },
+  "brand": { "wordmark": { "text": "HiddenPhysicsLab", "position": "top-left", "fill": "animated rainbow gradient (pink, amber, green, blue, violet)", "weight": 700 }, "replace_with": "your channel wordmark" },
+  "layout": {
+    "wordmark": { "x_pct": 5, "y_pct": 6.5 },
+    "header": { "x_pct": 5, "y_pct": 11, "w_pct": 90, "h_pct": 8, "left_bar": "blue", "pill": "right, outlined, upper-case" },
+    "subject": { "y_pct_from": 20, "y_pct_to": 76 },
+    "card": { "x_pct": 5, "y_pct": 77, "w_pct": 90, "h_pct": 18 },
+    "note": "The card reaches the bottom 5% of the frame, where Reels and Shorts draw their own controls. Our layouts keep text above the bottom 16%."
+  },
+  "camera": {
+    "projection": "perspective", "fov_deg": 30,
+    "moves": [
+      { "t": [0, 11.5], "shot": "medium: tube, rack and two bottles", "motion": "very slow drift" },
+      { "t": [11.5, 15], "shot": "close on the junction of the two layers", "motion": "push in" },
+      { "t": [15, 20], "shot": "medium, tube moved right, molecule at left", "motion": "pull back and pan" }
+    ]
+  },
+  "world": {
+    "objects": [
+      { "id": "tube", "type": "test_tube", "note": "tall, in the rack, slightly right of centre" },
+      { "id": "rack", "type": "test_tube_rack", "colour": "rust orange" },
+      { "id": "bottle_feso4", "type": "reagent_bottle", "cap": "blue", "liquid": "teal", "label": ["FeSO₄", "solution", "(ferrous sulfate)"] },
+      { "id": "bottle_acid", "type": "reagent_bottle", "cap": "grey", "liquid": "pale grey", "label": ["Concentrated", "H₂SO₄", "(sulfuric acid)"] },
+      { "id": "pipette", "type": "glass_pipette", "note": "enters from the top right, tip against the tube wall" },
+      { "id": "complex", "type": "ball_and_stick", "formula": "[Fe(H₂O)₅(NO)]²⁺", "geometry": "octahedral", "atoms": "Fe orange centre, five water O red with white H, NO on the axis (N blue, O red, yellow bond)" }
+    ]
+  },
+  "science": {
+    "domain": "chemistry", "topic": "qualitative analysis: nitrate", "level": "upper secondary",
+    "equations": [
+      { "id": "dissociation", "text": "FeSO₄(aq) → Fe²⁺ + SO₄²⁻", "check": "chem_balance" },
+      { "id": "reduction", "text": "NO₃⁻ + 3Fe²⁺ + 4H⁺ → NO + 3Fe³⁺ + 2H₂O", "check": "chem_balance", "verified_here": "atoms and charge (+9 each side) balance" },
+      { "id": "complexation", "text": "[Fe(H₂O)₆]²⁺ + NO → [Fe(H₂O)₅(NO)]²⁺ + H₂O", "check": "chem_balance" }
+    ],
+    "values": [{ "id": "acid_density", "text": "ρ = 1.84 g/cm³", "kind": "cited" }],
+    "weak_points_in_the_original": [
+      "The 'Yield' bar (26% to 93%) and 'Fe²⁺ mix' percentage are animation progress, not measured quantities. Our ledger refuses numbers like these unless they are labelled as animation progress or computed.",
+      "The line y(τ) = y₀ − 0.5 g τ² is decoration next to a chemistry step."
+    ]
+  },
+  "audio": { "voiceover": null, "music": { "present": true, "mood": "soft ambient electronic", "role": "continuous bed" }, "sfx": "none audible as separate events", "loudness": "about −16 dB mean" },
+  "timeline": [
+    {
+      "id": "step1", "t_start": 0, "t_end": 6.5, "pill": "STEP 1 · FeSO₄", "pill_colour": "teal",
+      "visual": "Pale teal liquid rises in the tube to about one third while the pipette rests on the rim.",
+      "card": { "heading": "1. Add Freshly Prepared FeSO₄ to Aqueous NO₃⁻ Sample", "equation": "FeSO₄(aq) → Fe²⁺ + SO₄²⁻", "footer": "y(τ) = y₀ − 0.5 g τ²   Fe²⁺ mix: 0% → 100%" }
+    },
+    {
+      "id": "step2", "t_start": 6.5, "t_end": 11.5, "pill": "STEP 2 · H₂SO₄", "pill_colour": "blue-grey",
+      "visual": "Acid runs down the wall; a clear dense layer grows under the teal layer, lifting it.",
+      "labels": [{ "text": "Aq. NO₃⁻ + FeSO₄ (top)", "side": "right" }, { "text": "Conc. H₂SO₄ (bottom)", "side": "right" }],
+      "card": { "heading": "2. Pour Dense Conc. H₂SO₄ Slowly Down Tube Wall (ρ = 1.84 g/cm³)", "equation": "NO₃⁻ + 3Fe²⁺ + 4H⁺ → NO + 3Fe³⁺ + 2H₂O", "footer": "Dense H₂SO₄ sinks below the aqueous layer without mixing" }
+    },
+    {
+      "id": "step3", "t_start": 11.5, "t_end": 15, "pill": "STEP 3 · RING", "pill_colour": "amber",
+      "visual": "Push in. An orange-brown glowing band with white sparkles forms at the junction.",
+      "labels": [{ "text": "Brown Ring [Fe(H₂O)₅(NO)]²⁺", "side": "left", "border": "amber" }],
+      "card": { "heading": "3. Interfacial Coordination Forms the Brown Ring Complex", "equation": "[Fe(H₂O)₆]²⁺ + NO → [Fe(H₂O)₅(NO)]²⁺ + H₂O", "progress_bar": "amber, labelled 'Yield: 26%' rising to 93%" }
+    },
+    {
+      "id": "step4", "t_start": 15, "t_end": 20, "pill": "STEP 4 · COMPLEX", "pill_colour": "amber",
+      "visual": "Pull back. The ball-and-stick complex flies in at the left and turns slowly; a thin gold halo circles it once.",
+      "labels": [{ "text": "Octahedral [Fe(H₂O)₅(NO)]²⁺", "side": "above the molecule", "border": "amber" }],
+      "card": { "heading": "Key Diagnostic Points — Pentaaquanitrosyliron(II) Complex", "equation": "NO₃⁻ + 3Fe²⁺ + 4H⁺ → NO + 3Fe³⁺ + 2H₂O ⇒ [Fe(H₂O)₅(NO)]²⁺", "checklist": ["Brown junction ring confirms NO₃⁻", "Use fresh FeSO₄", "Add conc. H₂SO₄ slowly"] }
+    }
+  ],
+  "persistent_text": { "title": "THE BROWN RING TEST", "subtitle": "Qualitative Test for Nitrate Ions (NO₃⁻)" },
+  "render": { "engine": "sami-science-studio", "scene_type": "3d", "components": ["lab.testTube", "lab.bottle", "lab.glow", "lab.molecule", "ui.header", "ui.pill", "ui.callout", "ui.card"], "missing_components": ["test tube rack", "pipette"] },
+  "avoid": ["narration", "hard cuts", "stock footage", "more than one equation per card", "numbers with no source"],
+  "qa_checklist": ["Every equation balances for atoms and charge.", "Layers stay in density order: acid below the aqueous layer.", "The ring sits exactly at the junction.", "Text is readable at 360 px width."]
+}

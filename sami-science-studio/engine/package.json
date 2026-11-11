@@ -1,0 +1,17 @@
+{
+  "name": "sami-science-studio-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Deterministic motion-graphics engine: timeline-driven Three.js + DOM scenes, rendered frame by frame.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "render": "node render/render.cjs",
+    "lint": "python3 -I verify/lint_project.py"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.0.0",
+    "@fontsource/jetbrains-mono": "^5.0.0",
+    "katex": "^0.16.0",
+    "three": "^0.170.0"
+  }
+}
